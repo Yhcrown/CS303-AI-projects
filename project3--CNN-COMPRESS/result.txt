@@ -1,0 +1,39 @@
+# Installation
+
+# The accuracy, infer time, MACs and params of reference model (LeNet-5)
+
+----------------------------------------------------------------
+| Model Name | Accuracy | Infer Time(ms) | Params(M) | MACs(M) |
+----------------------------------------------------------------
+|    LeNet-5 |    0.980 |          0.174 |     0.206 |   0.060 |
+----------------------------------------------------------------
+
+# The accuracy, infer time, MACs and params of your model (YourNet)
+
+-------------------------------------------------------------
+|         | Accuracy | Infer Time(ms) | MACs(M) | Params(M) |
+-------------------------------------------------------------
+| YourNet |    0.987 |          0.144 |   0.149 |     0.002 |
+-------------------------------------------------------------
+|   Score |   13.200 |         18.768 |   0.769 |    57.055 |
+-------------------------------------------------------------
+
+
+# The command to run “./train_yournet.py”
+
+if don't have teacher model:
+
+python3 ./train_yournet.py --checkpoint-dir ./checkpoints/my/ --epoch-end 200 --batch-size 32
+
+if have teacher model:
+
+python3 ./train_yournet.py  --checkpoint-dir ./checkpoints/my/   --epoch-end 200 --last-checkpoint ./checkpoints/my/best-teacher.pth --batch-size 32
+
+# The command to run “./test_yournet.py”
+
+python3 ./test_yournet.py --best-checkpoint ./checkpoints/my/best.pth --batch-size 128
+or
+./test.sh
+
+# Others
+teacher model is large , and I pre-train 200 teacher-model to select the best (0.996-0.997 accuracy), to decrease the size of upload file, I only retain the best teacher model.
