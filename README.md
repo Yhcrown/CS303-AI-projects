@@ -1,4 +1,4 @@
-# SUSTech CS303 AI projects
+# CS303 AI projects
  project1-Reversed Reversi ; project2-CARP ; project3-CNN compress
 
 
